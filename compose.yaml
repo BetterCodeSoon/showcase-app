@@ -7,4 +7,4 @@ services:
       - 'MARIADB_ROOT_PASSWORD=verysecret'
       - 'MARIADB_USER=myuser'
     ports:
-      - '3306'
+      - '9006:3306' # Map port 9006 on the host to port 3306 on the container
