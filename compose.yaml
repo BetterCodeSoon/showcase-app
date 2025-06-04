@@ -4,7 +4,7 @@ services:
       context: .
     working_dir: /app
     volumes:
-      - .:/app  # Mount the current directory into the container
+      - .:/app  # Mount current directory into container working dir
     ports:
       - "9005:8080"
     environment:
