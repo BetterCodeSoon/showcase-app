@@ -12,6 +12,8 @@ services:
     depends_on:
       mariadb:
         condition: service_healthy
+    networks:
+      - backend
 
   mariadb:
     image: 'mariadb:11.4.7'
@@ -26,3 +28,9 @@ services:
       interval: 5s # Checks every 5 seconds
       timeout: 5s # Maximum amount of time Docker will wait for the healthcheck command
       retries: 10 # Allows up to (interval * retries) seconds for MariaDB to become ready
+    networks:
+      - backend
+
+networks:
+  backend:
+  frontend:
