@@ -1,12 +1,4 @@
 services:
-  mariadb:
-    image: 'mariadb:11.4.7'
-    environment:
-      - MARIADB_DATABASE=${ENV_MARIADB_DATABASE}
-      - MARIADB_ROOT_PASSWORD=${ENV_MARIADB_ROOT_PASSWORD}
-    ports:
-      - '9006:3306' # Map port 9006 on the host to port 3306 on the container
-
   backend_dev:
     build:
       context: .
@@ -19,3 +11,11 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://showcase-app-mariadb-1:3306/showcase_dev
     depends_on:
       - mariadb
+
+  mariadb:
+    image: 'mariadb:11.4.7'
+    environment:
+      - MARIADB_DATABASE=${ENV_MARIADB_DATABASE}
+      - MARIADB_ROOT_PASSWORD=${ENV_MARIADB_ROOT_PASSWORD}
+    ports:
+      - '9006:3306' # Map port 9006 on the host to port 3306 on the container
