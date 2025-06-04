@@ -19,7 +19,7 @@ services:
     image: 'mariadb:11.4.7'
     environment:
       - MARIADB_DATABASE=${ENV_MARIADB_DATABASE}
-      - MARIADB_ROOT_PASSWORD=${ENV_MARIADB_ROOT_PASSWORD}
+      - MARIADB_ROOT_PASSWORD=${ENV_MARIADB_PASSWORD}
     ports:
       - '9006:3306' # Map port 9006 on the host to port 3306 on the container
     healthcheck:
