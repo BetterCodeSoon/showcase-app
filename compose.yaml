@@ -10,7 +10,8 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mariadb://showcase-app-mariadb-1:3306/showcase_dev
     depends_on:
-      - mariadb
+      mariadb:
+        condition: service_healthy
 
   mariadb:
     image: 'mariadb:11.4.7'
@@ -19,3 +20,9 @@ services:
       - MARIADB_ROOT_PASSWORD=${ENV_MARIADB_ROOT_PASSWORD}
     ports:
       - '9006:3306' # Map port 9006 on the host to port 3306 on the container
+    healthcheck:
+      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+      start_period: 8s # Gives MariaDB a grace period before checks begin
+      interval: 5s # Checks every 5 seconds
+      timeout: 5s # Maximum amount of time Docker will wait for the healthcheck command
+      retries: 10 # Allows up to (interval * retries) seconds for MariaDB to become ready
