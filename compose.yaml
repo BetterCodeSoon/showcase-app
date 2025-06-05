@@ -1,7 +1,8 @@
 services:
-  backend_dev:
+  backend-dev:
     build:
       context: .
+    image: showcase-app-backend-dev:0.0.1
     depends_on:
       mariadb:
         condition: service_healthy
