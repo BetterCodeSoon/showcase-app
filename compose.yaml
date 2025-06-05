@@ -28,6 +28,9 @@ services:
       - backend
     ports:
       - '9006:3306' # Map port 9006 on the host to port 3306 on the container
+    volumes:
+      # Mount host dir to persist MariaDB data outside the container
+      - /mariadb-data:/var/lib/mysql
 
 networks:
   backend:
