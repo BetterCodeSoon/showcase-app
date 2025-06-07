@@ -15,6 +15,7 @@ fi
 # Start building..
 
 cd ..
+
 ./gradlew clean build
 
 # Clean previous builds
