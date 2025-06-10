@@ -2,6 +2,8 @@ services:
   mariadb:
     image: 'mariadb:11.4.7'
     command: mariadbd --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    env_file:
+      - mariadb-login.env
     environment:
       - MARIADB_DATABASE=${ENV_MARIADB_DATABASE}
       - MARIADB_ROOT_PASSWORD=${ENV_MARIADB_PASSWORD}
