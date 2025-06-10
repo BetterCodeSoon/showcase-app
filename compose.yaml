@@ -1,18 +1,4 @@
 services:
-  backend-dev:
-    build:
-      context: .
-    image: showcase-app-backend-dev:0.0.1
-    depends_on:
-      mariadb:
-        condition: service_healthy
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mariadb://showcase-app-mariadb-1:3306/showcase_dev
-    networks:
-      - backend
-    ports:
-      - "9005:8080"
-
   mariadb:
     image: 'mariadb:11.4.7'
     command: mariadbd --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
@@ -32,6 +18,20 @@ services:
     volumes:
       # Mount host dir to persist MariaDB data outside the container
       - /mariadb-data:/var/lib/mysql
+
+  backend-dev:
+    build:
+      context: .
+    image: showcase-app-backend-dev:0.0.1
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://showcase-app-mariadb-1:3306/showcase_dev
+    networks:
+      - backend
+    ports:
+      - "9007:8080"
 
 networks:
   backend:
