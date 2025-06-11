@@ -3,8 +3,9 @@
 ########################
 # Buildscript Setup
 
-#ENV_FILENAME="" # Empty filename results in docker compose looking for unnamed ".env" file
-ENV_FILENAME="mariadb-login.env"
+# Empty filename results in docker compose looking for unnamed ".env" file
+ENV_FILENAME=""
+#ENV_FILENAME="mariadb-login.env"
 ENV_FILE_CMD=""
 
 if [ -n "$ENV_FILENAME" ]; then
