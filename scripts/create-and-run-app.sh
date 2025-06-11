@@ -21,6 +21,9 @@ cd ..
 # Clean previous builds
 #docker compose down --rmi all
 
+# Remove orphans
+#docker compose down --remove-orphans
+
 # Build with no cache to execute all steps fresh
 #docker compose ${ENV_FILE_CMD} -f compose.yaml build --no-cache
 
