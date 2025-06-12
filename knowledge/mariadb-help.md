@@ -1,17 +1,19 @@
 # Database Setup
-
+... for Ubuntu 24.10
 ## Table of Contents
 
 - [1. Install MariaDB](#1-install-mariadb)
 - [2. Setup custom data directory](#2-setup-custom-data-directory)
 - [3. Define default character set and collation](#3-define-default-character-set-and-collation)
-- [4. Useful commands](#4-useful-commands)
-
-(... for Ubuntu 24.10)
+- [4. Change MariaDB Port](#4-change-mariadb-port)
+- [Useful commands](#useful-commands)
 
 ## 1. Install MariaDB
 
 ...
+
+---
+
 
 ## 2. Setup custom data directory
 
@@ -59,7 +61,9 @@ or
 `'/usr/bin/mariadb -u root -p'`
 
 Check databases:  
-`SHOW DATABASES;`
+`SHOW DATABASES;`  
+
+---
 
 ## 3. Define default character set and collation
 
@@ -74,14 +78,41 @@ character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci  
 init-connect='SET NAMES utf8mb4'
 
-Restart MariaDB afterwards.
+Restart MariaDB afterwards.  
+`sudo systemctl restart mariadb`
 
-## 4. Useful commands
+---
 
-### 4.2 Start MariaDB
+## 4. Change MariaDB Port
+
+### 4.1. Open Config File  
+`sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf`
+
+### 4.2. Look for [mysql] section or add it on top of the file
+
+MariaDB standart port is 3306. Choose something else. 
+>[mysqld]  
+port = 7307
+
+### 4.3. Restart MariaDB Service
+
+`sudo systemctl restart mariadb`
+
+### 4.4. Verify the new port is working
+
+`sudo ss -tulnp | grep mysql`
+
+---
+
+## Useful commands
+
+### Start MariaDB
 
 `sudo systemctl start mariadb`
 
-### 4.3 Stop MariaDB
+### Stop MariaDB
 
 `sudo systemctl stop mariadb`
+
+### Restart MariaDB
+`sudo systemctl restart mariadb`
