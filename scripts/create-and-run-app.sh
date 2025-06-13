@@ -1,9 +1,12 @@
 #!/bin/bash
+# IDEA warning suppression:
+# shellcheck disable=SC2086
 
-# Parameter "clean" activates full clean gradle build
+# Cmd argument to activate full clean gradle build
+CLEAN_BUILD_PARAM="clean"
 
 if [ -z "$1" ]; then
-  echo "Optional usage to activate clean build: $0 clean"
+  echo "Optional usage to activate clean build: $0 $CLEAN_BUILD_PARAM"
   echo "Running script with normal build option.."
 fi
 
@@ -38,7 +41,7 @@ fi
 
 cd ..
 
-if [[ "$1" == "clean" ]]; then
+if [[ "$1" == "$CLEAN_BUILD_PARAM" ]]; then
   echo "Running: ./gradlew clean build (full clean build)"
   ./gradlew clean build
 else
