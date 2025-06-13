@@ -37,7 +37,6 @@ This means you can have a correct .env file, but if the data directory already h
 See all containers and find out id  
 `docker ps -a  `  
 `docker rm <container_id_or_name>`
-
 ---
 
 ## Problem: Resource still in use
@@ -45,8 +44,10 @@ See all containers and find out id
 Sometimes, containers can get stuck in a "removal in progress" or "dead" state, 
 which prevents image deletion even though they don't show up in "docker ps -a".
 
-The following cmds might help.
+See the cleanup script:  
+[../scripts/docker-helper/delete-orphanes.sh](../scripts/docker-helper/delete-orphans.sh)
 
+Otherwise, the following cmds might help for specific cases
 
 List dangling (unused) volumes:  
 `docker volume ls -f dangling=true`
@@ -69,9 +70,52 @@ Remove all unused images:
 **WARNING** this will delete all images  
 and perform full system cleanup (last resort!):  
 `docker system prune -a`
-
 ---
 
+## Optimizing container size
+
+Use multistage Dockerfiles.
+See: https://docs.docker.com/build/building/multi-stage/
+
+Jar file should be run with an JRE instead of JDK.
+
+Here are some options:
+
+| Image Type                        | Typical Size   | Notes                                      |
+|------------------------------------|---------------|--------------------------------------------|
+| openjdk:21-jdk-slim               | ~300MB+       | Full JDK, not minimal                      |
+| eclipse-temurin:21-jre            | ~100-200MB    | JRE only, smaller than JDK                 |
+| eclipse-temurin:21-jre-alpine     | ~50-100MB     | Smallest official JRE, if available        |
+| **Custom JRE (JLink)**            | 50MB or less  | Smallest possible, only needed modules     |
+| BellSoft Alpaquita, Corretto Alpine| ~40-90MB      | Vendor-optimized, very small               |
+
+See slim spring boot container:  
+https://github.com/mgrecuccio/slim-spring-boot
+---
+
+## Pin specific image versions
+
+Use the script to get the digest hash under:  
+[/scripts/docker-helper/image-digest.sh](../scripts/docker-helper/image-digest.sh)
+
+Pining works in compose.yaml and Dockerfile.
+
+In the Dockerfile:
+> FROM openjdk@sha256:7072053847a8a05d7f3a14ebc778a90b38c50ce7e8f199382128a53385160688 as builder
+
+instead of just writing:  
+> FROM openjdk:21-jdk-slim
+
+Same thing in the compose.yaml:  
+>image: mariadb@sha256:1d18f91deb21136d1881705720071d1b474a9904ecca827058bf1c0fc64d3118
+
+instead of:  
+>image:mariadb:11.4.7
+
+
+Further reading:  
+https://docs.docker.com/build/building/best-practices/#pin-base-image-versions
+---
 
 ## Useful Commands
 
