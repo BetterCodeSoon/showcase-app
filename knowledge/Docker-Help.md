@@ -1,9 +1,18 @@
-# Docker Troubleshooting
+# Docker Help and Troubleshooting
+
+This content refers to:
+
+Docker version 28.2.2, build e6534b4  
+Docker Compose version v2.36.2
+
+Under Ubuntu 24.04.2 LTS.
 
 ## Table of Contents
 
 - [Problem: Environment file is not used for credentials](#problem-the-env-file-with-database-credentials-is-not-used)
 - [Problem: Resource still in use](#problem-resource-still-in-use)
+- [How-to: Optimizing container size](#how-to-optimizing-container-size)
+- [How-to: Pin specific image versions](#how-to-pin-specific-image-versions)
 - [Useful Commands](#useful-commands)
 
 
@@ -72,7 +81,7 @@ and perform full system cleanup (last resort!):
 `docker system prune -a`
 ---
 
-## Optimizing container size
+## How-to: Optimizing container size
 
 Use multistage Dockerfiles.
 See: https://docs.docker.com/build/building/multi-stage/
@@ -93,7 +102,7 @@ See slim spring boot container:
 https://github.com/mgrecuccio/slim-spring-boot
 ---
 
-## Pin specific image versions
+## How-to: Pin specific image versions
 
 Use the script to get the digest hash under:  
 [/scripts/docker-helper/image-digest.sh](../scripts/docker-helper/image-digest.sh)

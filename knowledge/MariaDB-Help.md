@@ -1,21 +1,28 @@
-# Database Setup
-... for Ubuntu 24.10
+# MariaDB Help and Troubleshooting
+
+This is content refers to:  
+
+Mariadb:11.4.7  
+Docker image: `mariadb@sha256:1d18f91deb21136d1881705720071d1b474a9904ecca827058bf1c0fc64d3118`
+
+Under Ubuntu 24.04.2 LTS.
+
 ## Table of Contents
 
-- [1. Install MariaDB](#1-install-mariadb)
-- [2. Setup custom data directory](#2-setup-custom-data-directory)
-- [3. Define default character set and collation](#3-define-default-character-set-and-collation)
-- [4. Change MariaDB Port](#4-change-mariadb-port)
-- [Useful commands](#useful-commands)
+- [1. How-To: Install MariaDB](#1-how-to-install-mariadb)
+- [2. How-To: Setup custom data directory](#2-how-to-setup-custom-data-directory)
+- [3. How-To: Define default character set and collation](#3-how-to-define-default-character-set-and-collation)
+- [4. How-To: Change MariaDB Port](#4-how-to-change-mariadb-port)
+- [Misc: Useful commands](#misc-useful-commands)
 
-## 1. Install MariaDB
+## 1. How-To: Install MariaDB
 
 ...
 
 ---
 
 
-## 2. Setup custom data directory
+## 2. How-To: Setup custom data directory
 
 Why?
 An easy accessible, **absolute path** custom directory
@@ -65,7 +72,7 @@ Check databases:
 
 ---
 
-## 3. Define default character set and collation
+## 3. How-To: Define default character set and collation
 
 UTF-8 ensures consistent sorting and comparison behaviour for strings.
 
@@ -83,7 +90,7 @@ Restart MariaDB afterwards.
 
 ---
 
-## 4. Change MariaDB Port
+## 4. How-To: Change MariaDB Port
 
 ### 4.1. Open Config File  
 `sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf`
@@ -104,7 +111,7 @@ port = 7307
 
 ---
 
-## Useful commands
+## Misc: Useful commands
 
 ### Start MariaDB
 
