@@ -1,6 +1,7 @@
 services:
   mariadb:
-    image: 'mariadb:11.4.7'
+    # Pin version for image 'mariadb:11.4.7' with specific digest hash
+    image: mariadb@sha256:1d18f91deb21136d1881705720071d1b474a9904ecca827058bf1c0fc64d3118
     command: mariadbd --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
       - MARIADB_DATABASE=${ENV_MARIADB_DATABASE}
@@ -14,7 +15,9 @@ services:
     networks:
       - backend
     ports:
-      - '9006:3306' # Map port 9006 on the host to port 3306 on the container
+      # Opening the port only for debug purposes in development
+      # toDo: close port when used in production! (potential security risk)
+      - '9006:3306'
     volumes:
       # Mount host dir to persist MariaDB data outside the container
       - /mariadb-data:/var/lib/mysql
