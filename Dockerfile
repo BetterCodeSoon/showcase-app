@@ -1,6 +1,8 @@
 #################################
 # Build stage
-FROM openjdk:21-jdk-slim AS builder
+
+# Pin openjdk:21-jdk-slim version by using specific digest
+FROM openjdk@sha256:7072053847a8a05d7f3a14ebc778a90b38c50ce7e8f199382128a53385160688 AS builder
 
 # Define a variable for the working directory
 ENV APP_PATH=/showcase-app
@@ -21,10 +23,11 @@ COPY src src
 # Build the application using Gradle
 RUN ./gradlew bootJar
 
-
 #################################
 # Runtime Stage
-FROM openjdk:21-jdk-slim
+
+# Image eclipse-temurin:21-jre-alpine (lightweight JRE ~50-100mb)
+FROM eclipse-temurin@sha256:8728e354e012e18310faa7f364d00185277dec741f4f6d593af6c61fc0eb15fd
 
 # Define a variable for the working directory
 ENV APP_PATH=/showcase-app
