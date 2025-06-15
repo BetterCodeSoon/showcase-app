@@ -51,7 +51,7 @@ To save an object, send a JSON like this to the [POST endpoint](#-create-entity-
 ### ⚡ Quick Summary
 
 All other operations work in a similar way.  
-For a quick start, check out the [AppInfo](src/main/java/com/showcase/backend/domain/AppInfo.java) class or the integration test [ITAppInfoControllerSpec](src/test/groovy/com/showcase/backend/integration/controller/ITAppInfoControllerSpec.groovy) as recommended entry points to the code.
+As recommended entry points to the code, check out the [Docker Compose file](compose.yaml), the [AppInfo](src/main/java/com/showcase/backend/domain/AppInfo.java) class or the [ITAppInfoControllerSpec](src/test/groovy/com/showcase/backend/integration/controller/ITAppInfoControllerSpec.groovy) integration test.
 
 ---
 
