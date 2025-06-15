@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [🤔 Introduction](#-introduction)
+- [📘  Introduction](#-introduction)
 - [👾Tech Stack](#-tech-stack)
 - [📋 Requirements](#-requirements)
 - [🛠️ Project Setup and Configuration ](#-project-setup-and-configuration)
@@ -12,9 +12,10 @@
 
 
 ---
-## 🤔 Introduction
 
-### 📘 Project Overview
+## 📘 Introduction
+
+### 🗂️ Project Overview
 This app is a simple showcase of a containerized REST API Java backend using Spring Boot, a relational database and modern development practices like automated testing. 🧑‍🎨🙌
 
 ### 🎯 Features
