@@ -1,4 +1,4 @@
-# MariaDB Help and Troubleshooting
+# 🐬 MariaDB Help and Troubleshooting
 
 This is content refers to:  
 
