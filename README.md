@@ -19,7 +19,7 @@ This app is a simple showcase of a containerized REST API Java backend using Spr
 
 ### 🎯 Features
 
-- Create, read, update, and delete (very! 😏) simpel [AppInfo](src/main/java/com/showcase/backend/domain/AppInfo.java) objects in the database! 🤯
+- Create, read, update, and delete (very! 😏) simple [AppInfo](src/main/java/com/showcase/backend/domain/AppInfo.java) objects in the database! 🤯
 - RESTful endpoints
 - Examples of automated integration- and unit tests
 - Containerized setup
