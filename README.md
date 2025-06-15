@@ -48,6 +48,7 @@ To save an object, send a JSON like this to the [POST endpoint](#-create-entity-
 [Note](src/main/java/com/showcase/backend/domain/Note.java) class and the
 [script to ensure UUIDv7 generation](src/main/java/com/showcase/backend/domain/Note.java) on the database level.
 
+### ⚡ Quick Summary
 All other operations work in a similar way.  
 For a quick start, check out the [AppInfo](src/main/java/com/showcase/backend/domain/AppInfo.java) class or the integration test [ITAppInfoControllerSpec](src/test/groovy/com/showcase/backend/integration/controller/ITAppInfoControllerSpec.groovy) as recommended entry points to the code.
 ---
