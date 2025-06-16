@@ -16,10 +16,8 @@ class AssertionHelperSpec extends Specification {
 
     static boolean assertSameProperties(Object source, Object target) {
         assert source.class == target.class: "Object $source.class is not the same class as $target.class"
-
         def sourceProperties = getClassProperties(source)
         def targetProperties = getClassProperties(target)
-
         assert sourceProperties == targetProperties: "Object Properties differ: $sourceProperties vs $targetProperties"
         return true
     }
