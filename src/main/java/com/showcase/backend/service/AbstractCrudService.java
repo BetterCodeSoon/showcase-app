@@ -40,7 +40,6 @@ public abstract class AbstractCrudService<T extends IdAble<ID>, ID> {
   public T update(ID id, T entity) {
     validateEntity(entity);
     if (doesNotExist(id)) {
-      //throw new EntityNotFoundException("Cannot update. The id:" + id + " does not exist.");
       throw new EntityNotFoundException(String.format(UPDATE_NO_ID, id));
     }
     entity.setId(id);
