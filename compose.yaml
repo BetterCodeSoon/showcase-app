@@ -14,10 +14,6 @@ services:
       retries: 10 # Allows up to (interval * retries) seconds for MariaDB to become ready
     networks:
       - backend
-    ports:
-      # Opening the port only for debug purposes in development
-      # toDo: close port when used in production! (potential security risk)
-      - '9006:3306'
     volumes:
       # Mount host dir to persist MariaDB data outside the container
       - /mariadb-data:/var/lib/mysql
