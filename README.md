@@ -117,12 +117,13 @@ To build and run the project you need the following software installed and avail
 - Copy [template-application-integration.properties](src/test/resources/templates/template-application-integration.properties) to `src/test/resources/application-integration.properties`.
 - Adjust settings for integration testing.
 
+> 💡 *For all templates: Follow the instructions inside each file to complete your configuration.*
+
 **2.5. Set Gradle JDK Path**
 - Open `gradle.properties` and change:  
   `org.gradle.java.installations.paths={AbsolutePathToYourJDK}`
 
 
-> 💡 *For all templates: Follow the instructions inside each file to complete your configuration.*
 
 ### 3. 🗄️ Set Up Local MariaDB for Integration Tests
 - Ensure MariaDB is running on port `7306` (see [🐬 How-To: Change MariaDB Port](knowledge/MariaDB-Help.md#4-how-to-change-mariadb-port)).
