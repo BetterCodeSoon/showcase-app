@@ -159,7 +159,7 @@ To build and run the project you need the following software installed and avail
 ### 2. 📊 View Test Reports (Optional)
 
 - Gradle generates an HTML report for integration and unit tests.
-- View the [report](build/reports/tests/test/index.html) here: 👉 [`build/reports/tests/test/index.html`](build/reports/tests/test/index.html)
+- View the report here: 👉 [`build/reports/tests/test/index.html`](build/reports/tests/test/index.html)
 
 ### 3. ✅ Successful Build
 
